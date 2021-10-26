@@ -1,0 +1,47 @@
+#lang racket
+;sum of odd elements in a list
+
+(define (odd-sum list)
+  (cond ( (null? list) 0)
+        ( (= (remainder (car list) 2) 1) (+ (car list) (odd-sum (cdr list))))
+        (else
+        (odd-sum (cdr list)))))
+;(odd-sum '(1 2 3 4 5))
+
+;list of odd elemts
+
+(define (odd-ele list)
+  (cond ( (null? list) '())
+        ( (= (remainder (car list) 2) 1) (cons (car list) (odd-ele (cdr list))))
+        (else
+         ( odd-ele (cdr list)))))
+;(odd-ele '(1 2 3 4 5 9 8 7 6))
+
+;search an elemts
+
+(define (search list N)
+  (cond ( (null? list ) #f)
+        ((= (car list ) N) #t)
+        (else
+         (search (cdr list) N))))
+;(search '(1 2 3 4 5) 4)
+;(search '(1 2 3 4 5) 10)
+
+
+;sum of odd elemts in a tree
+
+
+(define (odd-sum-tree tree)
+  (cond ((null? tree ) 0)
+        ((not (pair? tree))
+         (if (= 1 (remainder (car tree) ))
+                                (+ (car tree) (odd-sum-tree (cdr tree)))
+                                (odd-sum-tree (cdr tree))))
+        
+        (else
+         (odd-sum-tree (cdr tree)))))
+(odd-sum-tree '(1 3 '(2 5 1) 4 7))
+(define treee '(1 2 ( 3 3 ) 5 (3 5)))
+treee
+
+

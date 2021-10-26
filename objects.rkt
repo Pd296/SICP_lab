@@ -1,0 +1,13 @@
+#lang racket
+
+(define (make-withdrawl bal)
+   (lambda (amt)
+     (if (>= bal amt)
+          (begin (set! bal (- bal amt)) bal)
+          "Insuffucient balcance"
+          )))
+(define w1 (make-withdrawl 500))
+;w1
+;(w1 50)
+(define w2 (make-withdrawl 1000) )
+;(w2 20)

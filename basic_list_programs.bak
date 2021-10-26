@@ -1,0 +1,31 @@
+#lang racket
+;append list
+
+(define (append list1 list2)
+  (if (null? list1)
+      list2
+     (cons (car list1) (append (cdr list1) list2))))
+;(append '(1 2 3 4) '(5 6 7 8))
+
+
+;Nth position of list
+
+(define (N-pos list n)
+  (if (= 0 n)
+      (car list)
+      (N-pos (cdr list) (- n 1))))
+(define list '(2 3 4 5))
+(N-pos list 4)
+
+(define (last list)
+  (if (null? (cdr list))
+      list
+      (last (cdr list))))
+;(last '(1 2 3 4 ))
+
+
+(define (reverse list)
+  (if (null? list)
+      '()
+      (append (reverse (cdr list)) (list (car list)))))
+(reverse '(1 2 3 4 5)) 

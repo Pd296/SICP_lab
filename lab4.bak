@@ -1,0 +1,2 @@
+#lang racket
+;Write the statement using list and cons to produce the output 3
